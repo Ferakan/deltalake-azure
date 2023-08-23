@@ -5,13 +5,13 @@ from pyspark.sql import Window as w
 from pyspark.sql.types import *
 
 # COMMAND ----------
-
-spark.conf.set("fs.azure.account.key.dpestorage42.blob.core.windows.net", dbutils.secrets.get(scope="storage_account", key="access_key"))
+storageName = dbutils.secrets.get(scope="storage_account", key="storage_name")
+spark.conf.set(f"fs.azure.account.key.{storageName}.blob.core.windows.net", dbutils.secrets.get(scope="storage_account", key="access_key"))
 
 # COMMAND ----------
 
-bronze_path = "wasbs://bronze@dpestorage42.blob.core.windows.net/"
-silver_path = "wasbs://silver@dpestorage42.blob.core.windows.net/"
+bronze_path = f"wasbs://bronze@{storageName}.blob.core.windows.net/"
+silver_path = f"wasbs://silver@{storageName}.blob.core.windows.net/"
 
 # COMMAND ----------
 

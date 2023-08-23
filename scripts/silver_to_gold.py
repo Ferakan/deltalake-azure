@@ -7,8 +7,8 @@ from pyspark.sql.types import *
 import time
 
 # COMMAND ----------
-
-spark.conf.set("fs.azure.account.key.dpestorage42.blob.core.windows.net", dbutils.secrets.get(scope="storage_account", key="access_key"))
+storageName = dbutils.secrets.get(scope="storage_account", key="storage_name")
+spark.conf.set(f"fs.azure.account.key.{storageName}.blob.core.windows.net", dbutils.secrets.get(scope="storage_account", key="access_key"))
 
 # COMMAND ----------
 

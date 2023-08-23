@@ -49,6 +49,17 @@ resource "databricks_secret_acl" "reddit_acl" {
   depends_on = [azurerm_databricks_workspace.dpe_databricks]
 }
 
+resource "databricks_secret" "storage_name" {
+  key = "storage_name"
+  string_value = "${var.storage_name}"
+  scope        = databricks_secret_scope.storage_account_ss.name
+
+  depends_on = [
+    azurerm_databricks_workspace.dpe_databricks,
+    azurerm_storage_account.dpe_storage
+  ]
+}
+
 resource "databricks_secret" "access_key_secret" {
   key = "access_key"
   string_value = azurerm_storage_account.dpe_storage.primary_access_key

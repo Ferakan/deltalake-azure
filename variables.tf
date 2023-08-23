@@ -5,13 +5,13 @@ variable "region" {
 
 variable "subscription_id" {
   type = string
-  default = "from azure account"
+  default = "" # from azure account
   sensitive = true
 }
 
 variable "tenant_id" {
   type = string
-  default = "from azure account"
+  default = "" #from azure account
   sensitive = true
 }
 
@@ -22,12 +22,18 @@ variable "blob_prefix" {
 
 variable reddit_client_id {
   type = string
-  default = "from reddit app"
+  default = "" # from reddit app
   sensitive = true
 }
 
 variable reddit_client_secret {
   type = string
-  default = "from reddit app"
+  default = "" # from reddit app
+  sensitive = true
+}
+
+variable storage_name {
+  type = string
+  default = "" #any name you want with no spaces
   sensitive = true
 }

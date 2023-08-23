@@ -78,7 +78,7 @@ Below are some ideas for improving the project.
 
 - Partition pruning on the ETL notebooks on Databricks to make the MERGE faster (without it Spark would scan the entire storage for each line it would update).
 
-- Modular-ize terraform resources to pack resource configurations together and fix the error from the Databricks deployment.
+- Modularize terraform resources to pack resource configurations together and fix the error from the Databricks deployment.
 
 
 ## 5. Sources

@@ -4,7 +4,7 @@ resource "azurerm_resource_group" "dpe_rg" {
 }
 
 resource "azurerm_storage_account" "dpe_storage" {
-  name                             = "dpestorage42"
+  name                             = "${var.storage_name}"
   resource_group_name              = azurerm_resource_group.dpe_rg.name
   location                         = azurerm_resource_group.dpe_rg.location
   account_tier                     = "Standard"
