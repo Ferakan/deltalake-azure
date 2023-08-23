@@ -1,0 +1,11 @@
+secret*
+
+**/.terraform/*
+*.plan.json
+
+*.tfstate
+*.tfstate.*
+
+.terraformrc
+terraform.rc
+.terraform.lock.hcl
